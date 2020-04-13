@@ -2,10 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="script.js"></script>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>hangman</title>
 </head>
 <body>
-    <div><canvas id="board"></canvas></div>
+    <div class="background"></div>
+    <div id="intro">
+        <h1>Welcome to Hangman!</h1>
+        <p>Enter word or choose a category below.</p>
+        <form id="wordInput">
+            <label>Word:
+                <input type="text" id="inputWord">
+            </label>
+        </form>
+        <button type="button" onclick="switchInput()">Switch Type</button>
+        <form id="wordSelect">
+            <label>Verb
+                <input type="radio" id="verb" name="category" value="verb" disabled>
+            </label>
+            <label>Noun
+                <input type="radio" id="noun" name="category" value="noun" disabled>
+            </label>
+            <label>Adjective
+                <input type="radio" id="adjective" name="category" value="adjective" disabled>
+            </label>
+        </form>
+        <button type="button" onclick="startGame()" id="buttonStartGame">Start!</button>
+    </div>
+    <div class="container" style="display: flex">
+        <div id="gameInfo" hidden>
+            <h1>Hangman</h1>
+            <p>Number of guesses: <span id="numberGuesses">0</span></p>
+            <p>Letters guessed:<br><span id="guessedLetters">None yet!</span></p>
+            <canvas id="board" width="500" height="500" style="border: 1px solid whitesmoke"></canvas>
+        </div>
+        <div id="game" style="flex-grow: 1; margin: 20px" hidden>
+            <h1>Word:</h1>
+            <p id="wordBoard"></p>
+            <h1>Guess a letter:</h1>
+            <form id="letterInput">
+
+            </form>
+        </div>
+    </div>
+    <footer>
+        <a href="https://github.com/dwyl/english-words/">English Words from dwyl on Github</a>
+        <p>created by aisair</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
