@@ -3,8 +3,7 @@ let numberGuesses = 0;
 let hits = 0;
 let correct = 0;
 let guessedLetters = [];
-let canvas = document.getElementById("board");
-let ctx = canvas.getContext("2d");
+let ctx = document.getElementById("board").getContext("2d");
 
 function switchInput() {
     let radios = document.getElementsByName('category');
@@ -58,18 +57,18 @@ function startGame() {
     refreshBoard();
 }
 
-function addButtons() {
+function addButtons() { // add buttons to html document so i don't have to add them manually
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
     let alphabetArray = alphabet.split("");
     let parent = document.getElementById("letterInput");
     for (let i = 0; i < alphabetArray.length; i++) {
         let newButton = document.createElement("button"); // create new button
         newButton.innerHTML = alphabetArray[i]; // set button letter
-        newButton.setAttribute("type", "button");
-        newButton.setAttribute("onclick", "guess(\"" + alphabetArray[i] + "\")");
-        newButton.setAttribute("id", "buttonLetter" + alphabetArray[i].toUpperCase());
-        newButton.setAttribute("class", "letterInputButton");
-        parent.append(newButton)
+        newButton.type = "button"; // set button
+        newButton.onclick = function(){guess(alphabetArray[i])}; // make button guess on click
+        newButton.id = "buttonLetter" + alphabetArray[i].toUpperCase(); // set button id for easy access later in js
+        newButton.className = "letterInputButton"; // set button class to allow disable
+        parent.append(newButton); // add button to letterInput form
     }
 }
 
