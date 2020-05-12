@@ -1,2 +1,4 @@
 # hangman  
-for APCSP
+for APCSP  
+by aisair  
+(@aisair on github)

@@ -29,7 +29,7 @@ function startGame() {
 
     // Get word from player input or randomized category
     if (document.getElementById("inputWord").disabled === false) {
-        word = document.getElementById("inputWord").value
+        word = document.getElementById("inputWord").value.toLowerCase();
     }
     else {
         let radios = document.getElementsByName("category");
@@ -137,7 +137,7 @@ function drawGuy(hits) {
                     drawLine(250, 245, 325, 225);
                     if (hits > 4) {
                         drawLine(250, 350, 185, 425);
-                        if(hits > 5) {
+                        if (hits > 5) {
                             drawLine(250, 350, 315, 425);
                         }
                     }
